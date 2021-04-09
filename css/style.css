@@ -1,0 +1,336 @@
+
+/*  ----------------------   Home Page  ----------------------   */
+
+body {
+	background-color: #585858;
+	color: rgb(204,204,204); 
+}
+
+.login-form {
+	padding: 50px;
+}
+
+.login-form .heading {
+	text-align: center;
+	font-size: 65px;
+	color: #78c2ad;
+	height: 30px;
+	margin: auto;
+	margin-bottom: 35px;
+	line-height: 50px;
+}
+
+.login-form .slogan {
+	text-align: center;
+	font-size: 15px;
+	color: #fff;
+	height: 10px;
+	margin: auto;
+	margin-bottom: 35px;
+	line-height: 15px;
+}
+
+.login-form .join{
+	background-color: rgb(37,37,37);
+	max-width: 500px;
+	margin: auto;
+	padding: 40px 60px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	box-shadow: 0px 2px 10px rgb(131,130,130);
+}
+
+.login-form .create{
+	background-color: rgb(37,37,37);
+	max-width: 500px;
+	margin: auto;
+	padding: 20px 60px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	box-shadow: 0px 2px 10px rgb(131,130,130);
+}
+
+.login-form .join-form-name {
+	text-align: center;
+	font-size: 20px;
+	color: #78c2ad;
+	height: 40px;
+	margin: auto;
+	margin-bottom: 10px;
+	line-height: 50px;
+}
+
+.login-form .create-form-name {
+	text-align: center;
+	font-size: 20px;
+	color: #ff9933;
+	height: 40px;
+	margin: auto;
+	margin-bottom: 10px;
+	line-height: 50px;
+}
+
+.login-form .item {
+	border-radius: 10px;
+	margin-bottom: 25px;
+	padding: 10px 20px;
+}
+
+.login-form .btn_join {
+	border-radius: 20px;
+	padding: 10px 20px;
+	font-weight: bold;
+	background-color: #78c2ad;
+	border: none;
+	color: #fff;
+	margin-top: 10px;
+}
+
+.login-form .btn_create {
+	border-radius: 20px;
+	padding: 10px 20px;
+	font-weight: bold;
+	background-color: #ff9933;
+	border: none;
+	color: #fff;
+	margin-top: 10px;
+}
+
+.btn_join {
+	display: block;
+	width: 100%;
+}
+
+.btn_create {
+	display: block;
+	width: 100%;
+}
+
+.btn_join:hover {
+	text-decoration: none;
+	opacity: 0.6;
+}
+
+.btn_create:hover {
+	text-decoration: none;
+	opacity: 0.6;
+}
+
+
+/*  ----------------------   Group Page  ----------------------   */
+
+/* Room Code  */
+.code-panel{
+	margin: auto;
+}
+
+.code {
+	font-size: 25px;
+	text-align: center;
+}
+
+
+/* Streaming Service  */
+
+.check-form {
+	padding: 10px;
+}
+
+.check-form .heading {
+	text-align: center;
+	font-size: 25px;
+	color: rgb(37,37,37);
+	margin-top: 15px;
+	margin-bottom: 15px;
+	line-height: 20px;
+}
+
+.check-form .checkbox{
+	background-color: #78c2ad;
+	max-width: 300px;
+
+	padding: 1px 30px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.checkbox .group {
+  	padding: 6px 4px;
+}
+
+.stream-pic{
+	margin-left: 20px;
+}
+
+.btn_stream {
+	border-radius: 20px;
+	background-color: rgb(37,37,37);
+	border: none;
+	color: #fff;
+	margin-top: 10px;
+	margin-bottom: 15px;
+}
+
+.btn_stream:hover {
+	text-decoration: none;
+	opacity: 0.6;
+}
+
+.btn_stream {
+	display: block;
+	width: 100%;
+}
+
+
+/* Movie Rankings */
+
+.leaderboard {
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	margin-top: 20px;
+	margin-right: 20px;
+	padding: 10px;
+	background-color:#78c2ad;
+}
+
+.leaderboard-title{
+	font-size: 30px;
+	color: rgb(37,37,37);
+}
+
+.movie-text {
+	color:white;
+	font-size: 25px;
+}
+
+.centered {
+	text-align: center;
+}
+
+
+
+/* User list */
+
+.users-title{
+	font-size: 20px;
+	color: rgb(37,37,37);
+}
+
+.users {
+	text-align: center;
+	margin-top: 20px;
+	padding: 10px;
+	background-color:#78c2ad;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.user-text {
+	color:white;
+	font-size: 15px;
+}
+
+
+/* Start Vote buttom */
+
+.btn_start {
+	border-radius: 20px;
+	background-color: #FF9C33;
+	border: none;
+	color: #fff;
+}
+
+.btn_start:hover {
+	text-decoration: none;
+	opacity: 0.6;
+}
+
+.btn_start {
+	display: block;
+	width: 80%;
+	height: 50px;
+	margin-top: 25px;
+	margin-left: 27px;
+}
+
+/* Chat box */
+
+
+
+/*  ----------------------   User Page  ----------------------   */
+
+.movie-panel {
+	padding: 20px;
+}
+
+.movie-panel .name {
+	margin: auto;
+	margin-bottom: 35px;
+	text-align: center;
+	font-size: 30px;
+	color: #78c2ad;
+	height: 20px;
+	line-height: 50px;
+}
+
+.movie-panel .movie{
+	background-color: rgb(37,37,37);
+	max-width: 520px;
+	margin: auto;
+	padding: 15px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	box-shadow: 0px 2px 10px rgb(131,130,130);
+}
+
+.movie-image{
+	text-align: center;
+}
+
+.like {
+	text-align: center;
+	padding-top: 300px;
+}
+
+.dislike{
+	text-align: center;
+	padding-top: 300px;
+}
+
+.btn_quit {
+	border-radius: 20px;
+	background-color: #FF9C33;
+	border: none;
+	color: #fff;
+	display: block;
+	width: 80%;
+	height: 50px;
+	margin-top: 25px;
+	margin-left: 27px;
+	margin-top: 150px;
+}
+
+.btn_quit:hover {
+	text-decoration: none;
+	opacity: 0.6;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
