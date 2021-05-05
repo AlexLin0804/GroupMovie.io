@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+
+		<link rel="stylesheet" href="/stylesheets/style.css" type="text/css">
+		<link rel="shortcut icon" href="/images/favicon.ico" type="images/x-icon"/>
+		<!-- Bootstrap-->
+		<link rel="stylesheet" href="/stylesheets/bootstrap.min.css" type="text/css">
+
+
+
+		<title>Group</title>
+
+		<style>
+			body {
+			  	background-image: url('/images/bg.jpg');
+			  	background-size: cover;
+			}
+		</style>
+		<script src ="/socket.io/socket.io.js"> </script>
+		<script type="text/javascript" src="/javascripts/group-client.js" defer></script>
+
+
+	</head>
+
+	<body>
+		<div class="code-panel w-25 h-35 rounded" style="background-color: #78c2ad;; color: white;">
+			<h2 class="room" style="text-align:left;float:left;"> Room Code: </h2>
+			<h2 class="code" id="room_code">Room Code</h2>
+		</div>
+
+		<!-- Loading Icon -->
+		<div id='overlay'>
+			<div class="loader">
+				<div id='timer-tournament'></div>
+				<div class="inner one"></div>
+				<div class="inner two"></div>
+				<div class="inner three"></div>
+			</div>
+		</div>
+
+		<div class="container-fluid" id="group-body">
+			<div class="row">
+
+				<!-- 1st Col -->
+				<div class="col">
+
+					<!-- Streaming services -->
+					<div class="check-form">
+						<form action="#" class="checkbox" id="servicesDiv">
+							<div class="heading">Streaming Services</div>
+
+							<div class="group" id="service1">
+								<input type="checkbox" id="HBO">
+								<img src="/images/hbo-max.png" alt="H B O" width="160" height="80" class="stream-pic"/>
+							</div>
+
+							<div class="group" id="service2">
+								<input type="checkbox" id="DisneyPlus">
+								<img src="/images/disney.png" alt="disney plus" width="160" height="80" class="stream-pic"/>
+							</div>
+
+							<div class="group" id="service3">
+								<input type="checkbox" id="Netflix">
+								<img src="/images/netflix.png" alt="netflix" width="160" height="80" class="stream-pic"/>
+							</div>
+
+							<div class="group" id="service4">
+								<input type="checkbox" id="Hulu">
+								<img src="/images/hulu.png" alt="hulu" width="160" height="80" class="stream-pic"/>
+							</div>
+
+							<div class="group" id="service5">
+								<input type="checkbox" id="PrimeVideo">
+								<img src="/images/prime-video.png" alt="prime video" width="160" height="80" class="stream-pic"/>
+							</div>
+
+							<div class="group" id="service6">
+								<input type="checkbox" id="YT">
+								<img src="/images/youtube-tv.png" alt="youtube tv" width="160" height="80" class="stream-pic"/>
+							</div>
+							<br>
+						</form>
+					</div>
+				</div>
+
+
+				<!-- 2nd Col -->
+				<div class="col-5">
+
+					<p id="timer" class="timer"></p>
+
+					<div class="help-button">
+						<a type="button" id="btn_help" alt="Additional help" class="btn_help" href="#popup1">Help</a>
+					</div>
+
+					<!-- LeaderBoard  -->
+					<div class="leaderboard">
+						<div class="leaderboard-title">
+							<span class="centered">Leaderboard</span>
+						</div>
+						<table class="table table-borderless" id="leaderboard-table">
+							<tbody class="movie-text">
+
+							</tbody>
+						</table>
+					</div>
+
+					
+
+
+				</div>
+
+
+
+				<!-- 3rd Col -->
+
+				<div class ="col">
+
+
+					<!-- List of users -->
+					<div class="users">
+						<div class="users-title">
+							<span class="title">Users</span>
+						</div>
+						<table class="table table-borderless" id="user-table">
+							<tbody class="user-text">
+
+							</tbody>
+						</table>
+					</div>
+
+
+					<!-- Set time -->
+
+					<div class="set-time" id="voting-time-title">
+						<div class="set-time-heading">Voting Time</div>
+						<input id="set-time-btn" alt="enter time for countdown" min="1" placeholder="Minute" type="number";>
+
+					</div>
+
+
+
+					<!-- Start button -->
+					<div class="start-button">
+						<button type="button" alt="Start countdown" class="btn_start" id="btn_start">Start Vote</button>
+					</div>
+
+					<div id="popup1" class="over">
+						<div class="popup">
+							<div class="Instructions">Instructions</div>
+							<a class="close" href="#">&times;</a>
+							<div class="content">
+								<ul>
+									<li>Room Host
+										<ol>
+											<li>Select streaming services. (At least 1)</li>
+											<li>Set voting time. (At least 1 minute)</li>
+											<li>Click on "Start Vote" button to start 1st round voting</li>
+											<li>"Find Movie" button will pop out</li>
+											<li>Click on "Find Movie" button to vote</li>
+										</ol>
+
+									</li>
+
+									<li>Room Member
+										<ol>
+											<li>Wait room host to start voting session</li>
+											<li>Once room host start voting session, "Find Movie" button will pop out </li>
+											<li>Click on "Find Movie" button to vote</li>
+										</ol>
+									</li>
+
+									<li>Everyone
+										<ol>
+											<li>Participate in a movie tournament when the timer expires</li>
+											<li>Watch the movie trailers in the first-round</li>
+										</ol>
+									</li>
+								</ul>
+								
+							</div>
+						</div>
+					</div>
+
+					<!-- Find Movie -->
+					<div>
+						<button type="button" alt="Find movies" id="btn_user_page">Find Movies</button>
+					</div>
+
+
+
+
+
+				</div>
+			</div>
+		</div>
+
+
+		<!-- user voting page  -->
+		<div class="movie-page-grid" id="user-body">
+
+			<div class="row">
+
+
+				<div class="col">
+					
+					<div class="search">
+						<p class='movie-searching'>Search for Movies</p>
+						<input type="text" id="movie-search" name="Search for a Movie" placeholder="movie name"/>
+					</div>
+
+					<div class="error">
+						<p id="search-error" style="color:white"></p>
+					</div>
+					
+
+
+
+					<div class="dislike">
+						<button type="button" id="dislike">
+							<img src="/images/dislike.png" width="200" height="200" alt="Dislike button"/>
+					    </button>
+					</div>
+
+
+				</div>
+
+
+				<div class="flip-container col-6" id="flip-container">
+					<div class="flip" id="flip">
+						<div class="movie-panel-front">
+							<div class="movie">
+								<div class="name">
+									<div id = "movieName"></div>
+								</div>
+
+								<div class="movie-image">
+									<div id = "movieImage"></div>
+								</div>
+
+								<div class="click">
+									click to see more details
+								</div>
+							</div>
+						</div>
+
+
+						<div class="movie-panel-back">
+							<div class="movie-back">
+
+								<div class="Rating">
+									<div id = "movieRating">IMDb </div>
+								</div>
+
+								<div class="File-rating">
+									<div id = "filmRating">Film Rating: </div>
+								</div>
+
+								<div class="description-heading">
+									<div>Movie Description: </div>
+									<div class="movie-description">
+										<div id = "movieDescription" ></div>
+									</div>
+								</div>
+
+
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+
+
+				<div class="col">
+					<div class="like">
+						<button type="button" id="like">
+							<img src="/images/like.png" alt="Like button"width="250" height="250"/>
+						</button>
+					</div>
+
+
+					<button type = "button" id ="btn_back" alt="Back to main page" class="btn_back_to_group_page">Back</button>
+
+				</div>
+
+
+			</div>
+		</div>
+
+
+
+		<!-- trailer -->
+
+		<div id = "tourn-body">
+				<div class="trailer-heading" id="tourn_movie_name">Movie Name</div>
+				<div class="votes" id="votes"></div>
+
+
+			<iframe class="video" width="100%" height="600" id="youtube-embed"></iframe>
+
+			<div class="row" style="margin: 0px;">
+
+				<div class="col" style="margin: 0px;">
+					<button type="button" alt="No button" class="btn_no" id="btn_no" style="margin: 0px;">NO</button>
+				</div>
+
+				<div class="col" style="margin: 0px;">
+					<button type="button" alt="Yes button" class="btn_yes" id="btn_yes" style="margin: 0px;">YES</button>
+				</div>
+
+
+			</div>
+		</div>
+
+
+		<!-- tournament bracket-->
+		<div class="tourn-page" id="tourn-page">
+			<div class="header"><h1>Movie Tournament</h1></div>
+			<div class="bracket-container">
+
+				<!-- Round 1 -->
+			  	<div class="bracket-level">
+
+			  		<!-- Matchup - 1 -->
+			    	<div class="bracket-matchup">
+			      		<div class="bracket-movie winner">
+			        		<div class="bracket-name" id="rank-0"></div>
+			        		<div class="bracket-score" id="rank-0-score"></div>
+			      		</div>
+
+			      		<div class="bracket-movie loser">
+			        		<div class="bracket-name" id="rank-1"></div>
+			        		<div class="bracket-score" id="rank-1-score"></div>
+			     		</div>
+			  		</div>
+
+			  		<!-- Matchup - 2 -->
+			   		<div class="bracket-matchup">
+			     		<div class="bracket-movie winner">
+			       			<div class="bracket-name" id="rank-2"></div>
+			       			<div class="bracket-score" id="rank-2-score"></div>
+			      		</div>
+
+			      		<div class="bracket-movie loser">
+			        		<div class="bracket-name" id="rank-3"></div>
+			        		<div class="bracket-score" id="rank-3-score"></div>
+			      		</div>
+			   		</div>
+
+			    	<!-- Matchup - 3 -->
+			    	<div class="bracket-matchup">
+			      		<div class="bracket-movie winner">
+			        		<div class="bracket-name" id="rank-4"></div>
+			       			<div class="bracket-score" id="rank-4-score"></div>
+			      		</div>
+
+			      		<div class="bracket-movie loser">
+			       			<div class="bracket-name" id="rank-5"></div>
+			       			<div class="bracket-score" id="rank-5-score"></div>
+			     		</div>
+			    	</div>
+
+
+			    	<!-- Matchup - 4 -->
+				    <div class="bracket-matchup">
+				      	<div class="bracket-movie winner">
+				        	<div class="bracket-name" id="rank-6"></div>
+				        	<div class="bracket-score" id="rank-6-score"></div>
+				      	</div>
+				      	<div class="bracket-movie loser">
+				        	<div class="bracket-name" id="rank-7"></div>
+				        	<div class="bracket-score" id="rank-7-score"></div>
+				      	</div>
+				    </div>
+
+				</div>
+
+				<!-- Semi Final -->
+			  	<div class="bracket-level">
+
+			  		<!-- Matchup - 1 -->
+				    <div class="bracket-matchup">
+				      	<div class="bracket-movie winner">
+				        	<div class="bracket-name" id="sem-1"></div>
+				        	<div class="bracket-score" id="sem-0-score"></div>
+				      	</div>
+
+				      	<div class="bracket-movie loser">
+					        <div class="bracket-name" id="sem-3"></div>
+					        <div class="bracket-score" id="sem-1-score"></div>
+				      	</div>
+				    </div>
+
+				    <!-- Matchup - 2 -->
+				    <div class="bracket-matchup">
+				      	<div class="bracket-movie winner">
+					        <div class="bracket-name" id="sem-5"></div>
+					        <div class="bracket-score" id="sem-2-score"></div>
+				      	</div>
+				     	<div class="bracket-movie loser">
+				        	<div class="bracket-name" id="sem-7"></div>
+				       	 	<div class="bracket-score" id="sem-3-score"></div>
+				      	</div>
+				    </div>
+
+				</div>
+
+				<!-- Final -->
+			  	<div class="bracket-level">
+			    	<div class="bracket-matchup">
+			      		<div class="bracket-movie winner">
+				        	<div class="bracket-name" id="final-1"></div>
+				        	<div class="bracket-score" id="final-0-score"></div>
+			     		</div>
+				      	<div class="bracket-movie loser">
+				        	<div class="bracket-name" id="final-3"></div>
+				        	<div class="bracket-score" id="final-1-score"></div>
+			      		</div>
+			    	</div>
+
+				</div>
+			</div>
+		</div>
+
+
+		<!-- result page -->
+		<div class="result-page" id="result-page">
+			<div class="result-heading" id="result-winner"></div>
+
+			<div class="row">
+				<div class="col"></div>
+
+				<div class="winner-movie-image col">
+					<table class="table table-borderless" id="result-table">
+						<tbody class="movie-text">
+
+						</tbody>
+					</table>
+				</div>
+
+				<div class="col">
+
+					<div class="movie-review">
+						<a type="button" alt="Link to winning movie review" class="btn_review" id="btn_review" href="#" target="_blank">Winning Movie Review</a>
+					</div>
+
+					<div class="result-leave-button">
+						<button type="button" alt="Leave" class="btn_leave" id="btn_leave">Leave</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<script src="/javascripts/bootstrap.bundle.min.js"></script>
+	</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="shortcut icon" href="/images/favicon.ico" type="images/x-icon"/>
+
+		<link rel="stylesheet" href="/stylesheets/style.css" type="text/css">
+		
+		<!-- Bootstrap-->
+		<link rel="stylesheet" href="/stylesheets/bootstrap.min.css" type="text/css">
+		
+			<title>Login Form</title>
+
+		<style>
+			body {
+			  	background-image: url('/images/bg.jpg');
+			  	background-size: cover;
+			}
+		</style>
+		<script type="text/javascript" src="/javascripts/client.js" defer></script>	
+	</head>
+	<body>
+		<div class="login-form">
+			<form class="join" id="join-form">
+				<div class="heading">
+					<span>GroupMovie</span>
+				</div>
+				<div class="slogan">
+					<span>Always Choose The Best Movie For You</span>
+				</div>
+				
+				<div class="join-form-name">
+					<span>Join Room</span>
+				</div>
+				<div class="form-group">
+					<p type="text" id="error_text_join"></p>
+				</div>
+				<div class="form-group">
+					<input type="text" alt="Input room code" name="roomcode" class="form-control item" id="roomcode" maxlength = "4" aria-labelledby="roomcode" placeholder="XXXX - Room Code" pattern="[A-Za-z ]"/>
+				</div>
+
+				<div class="form-group">
+					<input type="text" alt="Input user name" name="username" class="form-control item" id="username_join" maxlength = "12" aria-labelledby="username" placeholder="Username (3-12 characters)" pattern="[A-Za-z ]"/>
+				</div>
+
+				<div class="form-group">
+					<button aria-labelledby="btn_join" alt="Join Room Button" class="btn_join" id="btn_join">Join</button>
+				</div>
+			</form>	
+
+
+			<!--<form action="/submit-create" method="POST" class="create" id="create-form">-->
+			<form class="create" id="create-form">
+				<div class="create-form-name">
+					<span>Create Room</span>
+				</div>
+				<div class="form-group">
+					<p type="text" id="error_text_create"></p>
+				</div>
+				<div class="form-group">
+					<!--<input type="text" class="form-control item" id="username_create" maxlength = "12" aria-labelledby="username" placeholder="Username" pattern="[A-Za-z ]">-->
+					<input type="text" name="username" alt="Input username" class="form-control item" id="username_create" maxlength = "12" aria-labelledby="username" placeholder="Username (4-12 characters)" pattern="[A-Za-z ]"/>
+				</div>
+				<div class="form-group">
+					<!--<button type="submit" class="btn_create" aria-labelledby="btn_create" id="btn_create">Create</button>-->
+					<button class="btn_create" alt="Create Room Button" aria-labelledby="btn_create" id="btn_create">Create</button>
+				</div>
+			</form>
+
+
+
+		</div>
+		<script src="/javascripts/bootstrap.bundle.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	</body>
+</html>
