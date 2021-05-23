@@ -7,3 +7,7 @@ Check out our app! </br>
 http://group-movie-env.us-east-1.elasticbeanstalk.com/</br>
 </br>
 
+Demo Video! </br>
+https://drive.google.com/file/d/1j7qgs9Gfhc_9S7Fsp0eidYiKWFmgPbut/view?usp=sharing
+</br>
+
